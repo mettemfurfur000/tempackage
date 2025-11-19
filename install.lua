@@ -37,7 +37,7 @@ for i, path in ipairs(files) do
     tasks[i] = function()
         local url = source .. "/src/" .. path
         local r, e = http.get(url)
-        if not r then error("Failed to download " .. path .. ": " .. (e or "unknown"), 0) end
+        if not r then error('Failed to download "' .. url .. '": ' .. (e or "unknown"), 0) end
         local data = r.readAll()
         r.close()
 
