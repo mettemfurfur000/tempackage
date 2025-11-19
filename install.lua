@@ -1,7 +1,7 @@
 -- install.lua
-local user = "USERNAME"       -- set your GitHub user/org
-local repo = "REPO"          -- set your repo name
-local branch = "main"        -- set the branch (e.g. "main")
+local user = "mettemfurfur000"
+local repo = "tempackage"
+local branch = "main"
 local filelist_name = "src_files.lua"
 
 local program_name = "tempackage"
