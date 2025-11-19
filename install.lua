@@ -35,7 +35,7 @@ fs.makeDir(destpath .. "/src")
 local tasks = {}
 for i, path in ipairs(files) do
     tasks[i] = function()
-        local url = source .. path
+        local url = source .. "/src/" .. path
         local r, e = http.get(url)
         if not r then error("Failed to download " .. path .. ": " .. (e or "unknown"), 0) end
         local data = r.readAll()
@@ -58,6 +58,11 @@ end
 
 -- write launcher
 local launcher = io.open(program_name .. ".lua", "w")
+
+if not launcher then
+    error("Failed to create launcher file", 0)
+end
+
 launcher:write('shell.run("' .. program_name .. '/src/launch.lua")')
 launcher:close()
 
